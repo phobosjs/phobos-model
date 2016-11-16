@@ -1,0 +1,23 @@
+{
+  "name": "phobosjs-model",
+  "version": "0.0.0",
+  "description": "A module useful for building proper phobos.js ORM models",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/phobosjs/phobos-model.git"
+  },
+  "author": "Mike Timofiiv (https://fiiv.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phobosjs/phobos-model/issues"
+  },
+  "homepage": "https://github.com/phobosjs/phobos-model#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
+}
