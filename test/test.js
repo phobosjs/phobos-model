@@ -1,46 +1,28 @@
 const chai = require('chai')
+
 const _Module = require('../index')
+const SampleModelClass = require('./support/model-class')
 
 const expect = chai.expect
 
 describe('phobos.js model', () => {
-  class SampleModelClass {
 
-    constructor() {
-      return new _Module(this)
-    }
 
-    validate(prop, value) {
-      return SampleModelClass.validationPass
-    }
-
-  }
-
-  SampleModelClass.prototype.validationPass = false
-  SampleModelClass.prototype.fields = [ 'weather', 'distance' ]
   SampleModelClass.prototype.name = 'Sample'
 
-  const Instance = new SampleModelClass()
+  const Instance = new SampleModelClass(_Module)
 
   it('Proxy correctly wraps a class', () => {
-    expect(Instance.fields).to.include('weather')
-    expect(Instance.fields).to.include('distance')
-  })
-
-  it('Proxy rejects set() on validation error', () => {
-    Instance.weather = 'test'
-    expect(Instance.weather).to.equal(undefined)
-    expect(Instance.error).to.equal('invalid value for Sample.weather')
+    expect(SampleModelClass.fields).to.include.keys('weather')
+    expect(SampleModelClass.fields).to.include.keys('distance')
   })
 
   it('Proxy set() and get()', () => {
-    SampleModelClass.validationPass = true
     Instance.weather = 'test'
     expect(Instance.weather).to.equal('test')
   })
 
   it('Proxy deleteProperty()', () => {
-    SampleModelClass.validationPass = true
     delete Instance.weather
     expect(Instance.weather).to.equal(undefined)
   })
