@@ -1,6 +1,6 @@
 {
   "name": "phobosjs-model",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A module useful for building proper phobos.js ORM models",
   "main": "index.js",
   "scripts": {
